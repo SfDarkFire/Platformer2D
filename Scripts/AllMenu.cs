@@ -13,10 +13,10 @@ public class AllMenu : MonoBehaviour
     private int rulesBacgroundNuvmer = 0;
     public void OnRestartButton()
     {
-        // Восстанавливаем время
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         Time.timeScale = 1f;
 
-        // Перезагружаем текущую сцену
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -29,23 +29,23 @@ public class AllMenu : MonoBehaviour
     public void OnNextLevelButton()
     {
         Time.timeScale = 1f;
-        // Загружаем следующий уровень
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnFirstLevelButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Level_1");
     }
 
     public void OnSecondLevelButton()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Level_2");
     }
 
     public void OnThirdLevelButton()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Level_3");
     }
 
     public void OnRulesButton()
@@ -106,13 +106,13 @@ public class AllMenu : MonoBehaviour
 
     public void OnExitButton()
     {
-        Debug.Log("Выход из игры...");
+        Debug.Log("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ...");
 
-        // В редакторе останавливаем проигрывание
+        // пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #else
-        // В собранной версии закрываем приложение
+        // пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Application.Quit();
         #endif
     }
