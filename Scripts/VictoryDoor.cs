@@ -5,12 +5,12 @@ using UnityEngine.UIElements;
 
 public class VictoryDoor : MonoBehaviour
 {
-    [Header("Настройки двери")]
-    private float activationDistance = 2f; // Дистанция активации
-    private KeyCode interactKey = KeyCode.E; // Клавиша взаимодействия
+    [Header("РќР°СЃС‚СЂРѕР№РєРё РґРІРµСЂРё")]
+    private float activationDistance = 2f; // Р”РёСЃС‚Р°РЅС†РёСЏ Р°РєС‚РёРІР°С†РёРё
+    private KeyCode interactKey = KeyCode.E; // РљР»Р°РІРёС€Р° РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ
 
-    [Header("Меню победы")]
-    [SerializeField] private GameObject victoryMenu; // Ссылка на UI меню победы
+    [Header("РњРµРЅСЋ РїРѕР±РµРґС‹")]
+    [SerializeField] private GameObject victoryMenu; // РЎСЃС‹Р»РєР° РЅР° UI РјРµРЅСЋ РїРѕР±РµРґС‹
 
     private GameObject player;
     private Hero playerController;
@@ -24,7 +24,7 @@ public class VictoryDoor : MonoBehaviour
             playerController = player.GetComponent<Hero>();
         }
 
-        // Скрываем меню победы при старте
+        // РЎРєСЂС‹РІР°РµРј РјРµРЅСЋ РїРѕР±РµРґС‹ РїСЂРё СЃС‚Р°СЂС‚Рµ
         victoryMenu = GameObject.FindGameObjectWithTag("Background").transform.GetChild(2).gameObject;
         if (victoryMenu != null)
         {
@@ -49,10 +49,10 @@ public class VictoryDoor : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.transform.position);
         playerInRange = distance <= activationDistance;
 
-        // Здесь можно добавить визуальную подсказку (подсветку двери)
+        // Р—РґРµСЃСЊ РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ РІРёР·СѓР°Р»СЊРЅСѓСЋ РїРѕРґСЃРєР°Р·РєСѓ (РїРѕРґСЃРІРµС‚РєСѓ РґРІРµСЂРё)
         if (playerInRange)
         {
-            // Дверь подсвечивается когда игрок рядом
+            // Р”РІРµСЂСЊ РїРѕРґСЃРІРµС‡РёРІР°РµС‚СЃСЏ РєРѕРіРґР° РёРіСЂРѕРє СЂСЏРґРѕРј
             GetComponent<SpriteRenderer>().color = Color.yellow;
         }
         else
@@ -64,29 +64,29 @@ public class VictoryDoor : MonoBehaviour
     void ActivateVictory()
     {
         Debug.Log("Victory1");
-        // Активируем меню победы
+        // РђРєС‚РёРІРёСЂСѓРµРј РјРµРЅСЋ РїРѕР±РµРґС‹
         if (victoryMenu != null)
         {
             victoryMenu.SetActive(true);
         }
 
-        // Отключаем управление игроком
+        // РћС‚РєР»СЋС‡Р°РµРј СѓРїСЂР°РІР»РµРЅРёРµ РёРіСЂРѕРєРѕРј
         if (playerController != null)
         {
             playerController.SetControl(false);
         }
 
-        // Включаем курсор
+        // Р’РєР»СЋС‡Р°РµРј РєСѓСЂСЃРѕСЂ
         UnityEngine.Cursor.visible = true;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
 
         player.SetActive(false);
 
-        // Останавливаем время (опционально)
+        // РћСЃС‚Р°РЅР°РІР»РёРІР°РµРј РІСЂРµРјСЏ (РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ)
         Time.timeScale = 0f;
     }
 
-    // Визуализация радиуса активации в редакторе
+    // Р’РёР·СѓР°Р»РёР·Р°С†РёСЏ СЂР°РґРёСѓСЃР° Р°РєС‚РёРІР°С†РёРё РІ СЂРµРґР°РєС‚РѕСЂРµ
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
@@ -95,7 +95,7 @@ public class VictoryDoor : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Альтернативный способ через триггер
+        // РђР»СЊС‚РµСЂРЅР°С‚РёРІРЅС‹Р№ СЃРїРѕСЃРѕР± С‡РµСЂРµР· С‚СЂРёРіРіРµСЂ
         if (other.CompareTag("Player"))
         {
             playerInRange = true;

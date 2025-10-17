@@ -7,7 +7,7 @@ public class MagneticBlock : MonoBehaviour
     private float attractionForce = 3f;
     private float repulsionForce = 3f;
     private float activationRadius = 4f;
-    [SerializeField] private bool isBlueBlock = true; // true - голубой, false - красный
+    [SerializeField] private bool isBlueBlock = true; // true - РіРѕР»СѓР±РѕР№, false - РєСЂР°СЃРЅС‹Р№
 
     private Color gizmoColor = Color.cyan;
 
@@ -17,14 +17,14 @@ public class MagneticBlock : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        // Устанавливаем цвет в зависимости от типа блока
+        // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С†РІРµС‚ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ С‚РёРїР° Р±Р»РѕРєР°
         if (isBlueBlock)
         {
             gizmoColor = Color.cyan;
         }
         else
         {
-            gizmoColor = new Color(1f, 0.5f, 0.5f); // Светло-красный
+            gizmoColor = new Color(1f, 0.5f, 0.5f); // РЎРІРµС‚Р»Рѕ-РєСЂР°СЃРЅС‹Р№
         }
     }
 
@@ -44,18 +44,18 @@ public class MagneticBlock : MonoBehaviour
 
         if (player == null) return;
 
-        // Проверяем расстояние до игрока
+        // РџСЂРѕРІРµСЂСЏРµРј СЂР°СЃСЃС‚РѕСЏРЅРёРµ РґРѕ РёРіСЂРѕРєР°
         Vector3 playerTransformFix = player.transform.position;
         playerTransformFix.y += 0.7f;
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransformFix);
 
         if (distanceToPlayer <= activationRadius)
         {
-            if (isBlueBlock && Input.GetMouseButton(0)) // ЛКМ для голубого
+            if (isBlueBlock && Input.GetMouseButton(0)) // Р›РљРњ РґР»СЏ РіРѕР»СѓР±РѕРіРѕ
             {
                 isActive = true;
             }
-            else if (!isBlueBlock && Input.GetMouseButton(1)) // ПКМ для красного
+            else if (!isBlueBlock && Input.GetMouseButton(1)) // РџРљРњ РґР»СЏ РєСЂР°СЃРЅРѕРіРѕ
             {
                 isActive = true;
             }
@@ -77,30 +77,30 @@ public class MagneticBlock : MonoBehaviour
         Vector2 direction = playerTransformFix - transform.position;
         float distance = direction.magnitude;
 
-        if (distance > 0.1f) // Защита от деления на ноль
+        if (distance > 0.1f) // Р—Р°С‰РёС‚Р° РѕС‚ РґРµР»РµРЅРёСЏ РЅР° РЅРѕР»СЊ
         {
-            // Нормализуем направление
+            // РќРѕСЂРјР°Р»РёР·СѓРµРј РЅР°РїСЂР°РІР»РµРЅРёРµ
             direction.Normalize();
 
-            // Применяем силу в зависимости от типа блока
+            // РџСЂРёРјРµРЅСЏРµРј СЃРёР»Сѓ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ С‚РёРїР° Р±Р»РѕРєР°
             Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
             if (playerRb != null)
             {
                 if (isBlueBlock)
                 {
-                    // Притяжение (сила направлена к блоку)
+                    // РџСЂРёС‚СЏР¶РµРЅРёРµ (СЃРёР»Р° РЅР°РїСЂР°РІР»РµРЅР° Рє Р±Р»РѕРєСѓ)
                     playerRb.AddForce(-direction * attractionForce, ForceMode2D.Force);
                 }
                 else
                 {
-                    // Отталкивание (сила направлена от блока)
+                    // РћС‚С‚Р°Р»РєРёРІР°РЅРёРµ (СЃРёР»Р° РЅР°РїСЂР°РІР»РµРЅР° РѕС‚ Р±Р»РѕРєР°)
                     playerRb.AddForce(direction * repulsionForce, ForceMode2D.Force);
                 }
             }
         }
     }
 
-    // Визуализация радиуса действия в редакторе
+    // Р’РёР·СѓР°Р»РёР·Р°С†РёСЏ СЂР°РґРёСѓСЃР° РґРµР№СЃС‚РІРёСЏ РІ СЂРµРґР°РєС‚РѕСЂРµ
     void OnDrawGizmosSelected()
     {
         Gizmos.color = gizmoColor;

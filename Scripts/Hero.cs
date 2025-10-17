@@ -35,11 +35,11 @@ public class Hero : MonoBehaviour
 
     private void colorChange()
     {
-        if (Input.GetMouseButton(0)) // ЛКМ
+        if (Input.GetMouseButton(0)) // Р›РљРњ
         {
             currentColorState = 1;
         }
-        else if (Input.GetMouseButton(1)) // ПКМ
+        else if (Input.GetMouseButton(1)) // РџРљРњ
         {
             currentColorState = 2;
         }
@@ -74,7 +74,7 @@ public class Hero : MonoBehaviour
 
         if (!controlEnabled)
         {
-            // Останавливаем движение
+            // РћСЃС‚Р°РЅР°РІР»РёРІР°РµРј РґРІРёР¶РµРЅРёРµ
             rb.velocity = Vector2.zero;
         }
     }

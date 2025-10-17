@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour
         {
             Vector3 prediction = Vector3.zero;
 
-            // Предсказание движения на основе скорости
+            // РџСЂРµРґСЃРєР°Р·Р°РЅРёРµ РґРІРёР¶РµРЅРёСЏ РЅР° РѕСЃРЅРѕРІРµ СЃРєРѕСЂРѕСЃС‚Рё
             if (usePrediction && targetRb != null)
             {
                 prediction = targetRb.velocity * predictionStrength;

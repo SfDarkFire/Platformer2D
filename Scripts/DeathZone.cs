@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    [Header("Меню смерти")]
+    [Header("РњРµРЅСЋ СЃРјРµСЂС‚Рё")]
     [SerializeField] private GameObject deathMenu;
 
-    [Header("Настройки")]
+    [Header("РќР°СЃС‚СЂРѕР№РєРё")]
     [SerializeField] private bool killImmediately = true;
     [SerializeField] private float killDelay = 0f;
 
@@ -24,7 +24,7 @@ public class DeathZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Игрок попал в зону смерти");
+            Debug.Log("РРіСЂРѕРє РїРѕРїР°Р» РІ Р·РѕРЅСѓ СЃРјРµСЂС‚Рё");
 
             if (killImmediately)
             {
@@ -41,7 +41,7 @@ public class DeathZone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Игрок столкнулся с зоной смерти");
+            Debug.Log("РРіСЂРѕРє СЃС‚РѕР»РєРЅСѓР»СЃСЏ СЃ Р·РѕРЅРѕР№ СЃРјРµСЂС‚Рё");
 
             if (killImmediately)
             {
@@ -65,14 +65,14 @@ public class DeathZone : MonoBehaviour
 
     private void KillPlayer(GameObject player)
     {
-        // Отключаем управление игроком
+        // РћС‚РєР»СЋС‡Р°РµРј СѓРїСЂР°РІР»РµРЅРёРµ РёРіСЂРѕРєРѕРј
         Hero playerController = player.GetComponent<Hero>();
         if (playerController != null)
         {
             playerController.SetControl(false);
         }
 
-        // Останавливаем движение игрока
+        // РћСЃС‚Р°РЅР°РІР»РёРІР°РµРј РґРІРёР¶РµРЅРёРµ РёРіСЂРѕРєР°
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
         if (playerRb != null)
         {
@@ -80,15 +80,15 @@ public class DeathZone : MonoBehaviour
             playerRb.angularVelocity = 0f;
         }
 
-        // Скрываем игрока (опционально)
+        // РЎРєСЂС‹РІР°РµРј РёРіСЂРѕРєР° (РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ)
         // player.SetActive(false);
 
-        // Показываем меню смерти
+        // РџРѕРєР°Р·С‹РІР°РµРј РјРµРЅСЋ СЃРјРµСЂС‚Рё
         player.SetActive(false);
 
         ShowDeathMenu();
 
-        Debug.Log("Игрок умер");
+        Debug.Log("РРіСЂРѕРє СѓРјРµСЂ");
     }
 
     private void ShowDeathMenu()
@@ -98,26 +98,26 @@ public class DeathZone : MonoBehaviour
             deathMenu.SetActive(true);
             GameObject.FindGameObjectWithTag("Background").transform.GetChild(0).gameObject.SetActive(false);
 
-            // Включаем курсор
+            // Р’РєР»СЋС‡Р°РµРј РєСѓСЂСЃРѕСЂ
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
-            // Останавливаем время
+            // РћСЃС‚Р°РЅР°РІР»РёРІР°РµРј РІСЂРµРјСЏ
             Time.timeScale = 0f;
         }
         else
         {
-            Debug.LogWarning("DeathMenu не назначен в инспекторе!");
+            Debug.LogWarning("DeathMenu РЅРµ РЅР°Р·РЅР°С‡РµРЅ РІ РёРЅСЃРїРµРєС‚РѕСЂРµ!");
         }
     }
 
-    // Визуализация в редакторе
+    // Р’РёР·СѓР°Р»РёР·Р°С†РёСЏ РІ СЂРµРґР°РєС‚РѕСЂРµ
     private void OnDrawGizmos()
     {
         Collider2D collider = GetComponent<Collider2D>();
         if (collider != null)
         {
-            Gizmos.color = new Color(1f, 0f, 0f, 0.3f); // Красный с прозрачностью
+            Gizmos.color = new Color(1f, 0f, 0f, 0.3f); // РљСЂР°СЃРЅС‹Р№ СЃ РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚СЊСЋ
             Gizmos.DrawCube(transform.position, collider.bounds.size);
         }
     }
