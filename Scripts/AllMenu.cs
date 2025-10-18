@@ -13,23 +13,23 @@ public class AllMenu : MonoBehaviour
     private int rulesBacgroundNuvmer = 0;
     public void OnRestartButton()
     {
-        // Восстанавливаем время
+        // Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј РІСЂРµРјСЏ
         Time.timeScale = 1f;
 
-        // Перезагружаем текущую сцену
+        // РџРµСЂРµР·Р°РіСЂСѓР¶Р°РµРј С‚РµРєСѓС‰СѓСЋ СЃС†РµРЅСѓ
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnMainMenuButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnNextLevelButton()
     {
         Time.timeScale = 1f;
-        // Загружаем следующий уровень
+        // Р—Р°РіСЂСѓР¶Р°РµРј СЃР»РµРґСѓСЋС‰РёР№ СѓСЂРѕРІРµРЅСЊ
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -106,13 +106,13 @@ public class AllMenu : MonoBehaviour
 
     public void OnExitButton()
     {
-        Debug.Log("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ...");
+        Debug.Log("Р’С‹С…РѕРґ РёР· РёРіСЂС‹.");
 
-        // В редакторе останавливаем проигрывание
+        // Р’ СЂРµРґР°РєС‚РѕСЂРµ РѕСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїСЂРѕРёРіСЂС‹РІР°РЅРёРµ
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #else
-        // В собранной версии закрываем приложение
+        // Р’ СЃРѕР±СЂР°РЅРЅРѕР№ РІРµСЂСЃРёРё Р·Р°РєСЂС‹РІР°РµРј РїСЂРёР»РѕР¶РµРЅРёРµ
         Application.Quit();
         #endif
     }
