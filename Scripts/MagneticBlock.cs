@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MagneticBlock : MonoBehaviour
 {
-    private float attractionForce = 3f;
-    private float repulsionForce = 3f;
-    private float activationRadius = 4f;
+    
+    [SerializeField] private float repulsionForce = 3f;
+    [SerializeField] private float attractionForce = 3f;
+    [SerializeField] private float activationRadius = 4f;
     [SerializeField] private bool isBlueBlock = true; // true - голубой, false - красный
 
     private Color gizmoColor = Color.cyan;
