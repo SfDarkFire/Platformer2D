@@ -5,8 +5,8 @@ using UnityEngine;
 public class MagneticBlock : MonoBehaviour
 {
     
-    [SerializeField] private float repulsionForce = 3f;
-    [SerializeField] private float attractionForce = 3f;
+    [SerializeField] private float repulsionForce = 20f;
+    [SerializeField] private float attractionForce = 20f;
     [SerializeField] private float activationRadius = 4f;
     [SerializeField] private bool isBlueBlock = true; // true - голубой, false - красный
 
@@ -29,14 +29,18 @@ public class MagneticBlock : MonoBehaviour
         }
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        CheckForInput();
-
         if (isActive && player != null)
         {
             ApplyMagneticForce();
         }
+    }
+
+    void Update()
+    {
+        CheckForInput();
+
     }
 
     void CheckForInput()

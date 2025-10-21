@@ -83,6 +83,7 @@ public class Hero : MonoBehaviour
     {
         if (canMove)
         {
+            Time.timeScale = 0f;
             SetControl(false);
             GameObject.FindGameObjectWithTag("Background").transform.GetChild(0).gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("Background").transform.GetChild(3).gameObject.SetActive(true);
@@ -91,6 +92,7 @@ public class Hero : MonoBehaviour
         }
         else
         {
+            Time.timeScale = 1f;
             SetControl(true);
             GameObject.FindGameObjectWithTag("Background").transform.GetChild(0).gameObject.SetActive(true);
             GameObject.FindGameObjectWithTag("Background").transform.GetChild(3).gameObject.SetActive(false);

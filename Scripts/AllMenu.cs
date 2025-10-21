@@ -30,7 +30,14 @@ public class AllMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         // Загружаем следующий уровень
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void OnFirstLevelButton()

@@ -607,6 +607,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4910644746024868605, guid: e214fa1b9b7b90e4c9919bf4210ce6ac, type: 3}
+      propertyPath: attractionForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910644746024868605, guid: e214fa1b9b7b90e4c9919bf4210ce6ac, type: 3}
       propertyPath: activationRadius
       value: 7
       objectReference: {fileID: 0}
@@ -729,6 +733,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4910644746024868605, guid: e214fa1b9b7b90e4c9919bf4210ce6ac, type: 3}
+      propertyPath: attractionForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910644746024868605, guid: e214fa1b9b7b90e4c9919bf4210ce6ac, type: 3}
       propertyPath: activationRadius
       value: 4
       objectReference: {fileID: 0}
@@ -751,7 +759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 348071552094971479, guid: 58c6d917d35ee5c41ab3891007a49eb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.15
+      value: -2.27
       objectReference: {fileID: 0}
     - target: {fileID: 348071552094971479, guid: 58c6d917d35ee5c41ab3891007a49eb7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -812,6 +820,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1192300497656899932, guid: e8a2e63b030818f41b24d2557b020561, type: 3}
+      propertyPath: repulsionForce
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2464979651067633639, guid: e8a2e63b030818f41b24d2557b020561, type: 3}
       propertyPath: m_Name
       value: MagneticMinus (1)
@@ -1386,6 +1398,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1192300497656899932, guid: e8a2e63b030818f41b24d2557b020561, type: 3}
+      propertyPath: repulsionForce
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2464979651067633639, guid: e8a2e63b030818f41b24d2557b020561, type: 3}
       propertyPath: m_Name
       value: MagneticMinus
