@@ -4231,6 +4231,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8935259650883486366, guid: 78171bd526f03504f87d06277c1aadc0, type: 3}
+      propertyPath: jumpForse
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935259650883486366, guid: 78171bd526f03504f87d06277c1aadc0, type: 3}
+      propertyPath: groundLinearDrag
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935259650883486366, guid: 78171bd526f03504f87d06277c1aadc0, type: 3}
+      propertyPath: groundAcceleration
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
