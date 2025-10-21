@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,9 @@ using UnityEngine;
 public class MagneticBlock : MonoBehaviour
 {
     
-    [SerializeField] private float repulsionForce = 3f;
-    [SerializeField] private float attractionForce = 3f;
-    [SerializeField] private float activationRadius = 4f;
+     private float repulsionForce = 4f;
+     private float attractionForce = 5f;
+     private float activationRadius = 4f;
     [SerializeField] private bool isBlueBlock = true; // true - голубой, false - красный
 
     private Color gizmoColor = Color.cyan;
@@ -31,14 +32,20 @@ public class MagneticBlock : MonoBehaviour
 
     void Update()
     {
+        // Проверку ввода (которая меняет 'isActive') оставляем здесь,
+        // так как Input.GetMouseButton лучше всего работает в Update()
         CheckForInput();
+    }
 
+// Этот метод будет вызван с фиксированной частотой
+    void FixedUpdate()
+    {
+        // А вот применение силы переносим сюда
         if (isActive && player != null)
         {
             ApplyMagneticForce();
         }
     }
-
     void CheckForInput()
     {
         if (player == null) Debug.Log("Plus404");
