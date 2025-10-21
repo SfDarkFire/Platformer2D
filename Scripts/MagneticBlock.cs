@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,9 @@ using UnityEngine;
 public class MagneticBlock : MonoBehaviour
 {
     
-    [SerializeField] private float repulsionForce = 20f;
-    [SerializeField] private float attractionForce = 20f;
-    [SerializeField] private float activationRadius = 4f;
+     private float repulsionForce = 40f;
+     private float attractionForce = 100f;
+     private float activationRadius = 4f;
     [SerializeField] private bool isBlueBlock = true; // true - голубой, false - красный
 
     private Color gizmoColor = Color.cyan;
@@ -31,6 +32,8 @@ public class MagneticBlock : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // обновление с фиксированной частотой
+        
         if (isActive && player != null)
         {
             ApplyMagneticForce();
