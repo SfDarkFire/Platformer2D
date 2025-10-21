@@ -6,8 +6,8 @@ using UnityEngine;
 public class MagneticBlock : MonoBehaviour
 {
     
-     private float repulsionForce = 4f;
-     private float attractionForce = 5f;
+     private float repulsionForce = 40f;
+     private float attractionForce = 100f;
      private float activationRadius = 4f;
     [SerializeField] private bool isBlueBlock = true; // true - голубой, false - красный
 
@@ -32,15 +32,13 @@ public class MagneticBlock : MonoBehaviour
 
     void Update()
     {
-        // Проверку ввода (которая меняет 'isActive') оставляем здесь,
-        // так как Input.GetMouseButton лучше всего работает в Update()
         CheckForInput();
     }
 
-// Этот метод будет вызван с фиксированной частотой
     void FixedUpdate()
     {
-        // А вот применение силы переносим сюда
+        // обновление с фиксированной частотой
+        
         if (isActive && player != null)
         {
             ApplyMagneticForce();
