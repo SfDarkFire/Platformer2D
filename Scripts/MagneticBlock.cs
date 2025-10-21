@@ -30,12 +30,7 @@ public class MagneticBlock : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        CheckForInput();
-    }
-
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         // обновление с фиксированной частотой
         
@@ -44,6 +39,13 @@ public class MagneticBlock : MonoBehaviour
             ApplyMagneticForce();
         }
     }
+
+    void Update()
+    {
+        CheckForInput();
+
+    }
+
     void CheckForInput()
     {
         if (player == null) Debug.Log("Plus404");
